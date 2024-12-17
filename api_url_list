@@ -1,0 +1,29 @@
+// fetch all product
+
+  https://fakestoreapi.com/products
+
+Get a single product
+  https://fakestoreapi.com/products/1
+
+Sort results
+  https://fakestoreapi.com/products?sort=desc
+
+GET ALL CATEGORIES
+  https://fakestoreapi.com/products/categories
+
+GET PRODUCT WITH SPECIFIC CATEGORIES
+  https://fakestoreapi.com/products/category/jewelery
+
+Add new product
+  https://fakestoreapi.com/products :
+  title: 'test product',
+  price: 13.5,
+  description: 'lorem ipsum set',
+  image: 'https://i.pravatar.cc',
+  category: 'electronic'
+
+Update a product
+  https://fakestoreapi.com/products/7
+
+Delete a product
+   https://fakestoreapi.com/products/6
