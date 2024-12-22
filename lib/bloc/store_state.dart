@@ -1,7 +1,11 @@
 part of 'store_bloc.dart';
 
-@immutable
-sealed class StoreState {}
+sealed class StoreState extends Equatable {
+  const StoreState();
+
+  @override
+  List<Object> get props => [];
+}
 
 final class StoreInitial extends StoreState {}
 
@@ -10,17 +14,14 @@ final class LoadingStore extends StoreState {}
 final class StoreLoaded extends StoreState {
   final List<Product> productList;
 
-  StoreLoaded({required this.productList});
-}
-
-final class AddNewProduct extends StoreState {
-  final Product newProduct;
-
-  AddNewProduct({required this.newProduct});
+  const StoreLoaded({required this.productList});
 }
 
 final class StoreError extends StoreState {
   final String message;
 
-  StoreError({required this.message});
+  const StoreError({required this.message});
+
+  @override
+  List<Object> get props => [message];
 }

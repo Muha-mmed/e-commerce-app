@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:e_commerce_ui/service/api_repo/api_repo.dart';
-import 'package:meta/meta.dart';
+import 'package:equatable/equatable.dart';
 
 import '../product.dart';
 
@@ -15,15 +15,6 @@ class StoreBloc extends Bloc<StoreEvent, StoreState> {
       try {
         final List<Product> productList = await apiRepository.getProduct();
         emit(StoreLoaded(productList: productList));
-      } on NetworkError {
-        throw Exception("check your internet connection to load products");
-      }
-    });
-    on<AddProduct>((event, emit) async {
-      emit(LoadingStore());
-      try {
-        final newProduct = await apiRepository.addProduct(event.product);
-        emit(AddNewProduct(newProduct: newProduct));
       } on NetworkError {
         throw Exception("check your internet connection to load products");
       }

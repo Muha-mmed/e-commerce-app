@@ -1,21 +1,22 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 class Product {
-  final int id;
+  final int? id;
   final String title;
   final double price;
   final String description;
   final String category;
   final String image;
-  final Rating rating;
+  final Rating? rating;
 
   Product(
-      {required this.id,
+      {this.id,
       required this.title,
       required this.price,
       required this.description,
       required this.category,
       required this.image,
-      required this.rating});
+      this.rating});
+      
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -25,7 +26,7 @@ class Product {
       'description': description,
       'category': category,
       'image': image,
-      'rating': rating.toJson(),
+      'rating': rating?.toJson(),
     };
   }
 
@@ -37,7 +38,9 @@ class Product {
       description: (map['description'] ?? '') as String,
       category: (map['category'] ?? '') as String,
       image: (map['image'] ?? '') as String,
-      rating: Rating.fromJson(map['rating'] as Map<String, dynamic>),
+      rating: map['rating'] != null
+          ? Rating.fromJson(map['rating'] as Map<String, dynamic>)
+          : null,
     );
   }
 

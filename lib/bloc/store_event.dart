@@ -1,11 +1,10 @@
 part of 'store_bloc.dart';
 
-@immutable
-sealed class StoreEvent {}
+sealed class StoreEvent extends Equatable {
+  const StoreEvent();
+
+  @override
+  List<Object> get props => [];
+}
 
 class FetchProductEvent extends StoreEvent {}
-
-class AddProduct extends StoreEvent {
-   final Product product; 
-  AddProduct({required this.product});
-}
