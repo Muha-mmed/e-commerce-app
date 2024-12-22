@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_commerce_ui/bloc/store_bloc.dart';
 import 'package:flutter/material.dart';
